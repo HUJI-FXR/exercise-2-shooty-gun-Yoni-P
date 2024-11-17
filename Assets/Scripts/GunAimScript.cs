@@ -13,10 +13,10 @@ public class GunAimScript : MonoBehaviour
     private void AimGun()
     {
         
-        var relativePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        relativePos.z = 0;
+        var relativeVec = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
-        float rot = Vector3.SignedAngle(Vector3.left, relativePos, Vector3.forward);
+        float rot = Vector2.SignedAngle(Vector2.left, relativeVec);
+        
         transform.localRotation = Quaternion.Euler(0, 0 ,rot);
     }
 }
