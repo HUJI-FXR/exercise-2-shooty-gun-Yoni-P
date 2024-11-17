@@ -25,9 +25,8 @@ public class ShootyGunScript : MonoBehaviour
         var newBulletRigidBody = newBullet.GetComponent<Rigidbody2D>();
         
         newBullet.SetActive(true);
-        var gunAngle = transform.rotation.z * Mathf.Deg2Rad;
-        var velocityDir = new Vector2(Mathf.Sin(gunAngle), Mathf.Cos(gunAngle)).normalized;
-        velocityDir = -newBullet.transform.right;
+        
+        var velocityDir = -newBullet.transform.right;
         newBulletRigidBody.velocity = velocityDir * bulletSpeed;
     }
 }
